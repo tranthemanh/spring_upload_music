@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title>DeleteSong</title>
+</head>
+<body>
+<h3>Remove Song</h3>
+<p>
+    <a th:href="@{/songs}">
+        Back to song list
+    </a>
+</p>
+<div id="form">
+    <form action="#" th:action="@{/songs/delete}" th:object="${song}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" th:field="*{name}"/>
+        </div>
+        <div>
+            <label for="artist">Artist</label>
+            <input type="text" id="artist" th:field="*{artist}"/>
+        </div>
+        <div>
+            <label for="genres">Genres</label>
+            <input type="text" id="genres" th:field="*{genres}"/>
+        </div>
+        <div>
+            <label for="filePath">Audio</label>
+            <input type="file" id="filePath" th:field="*{filePath}"/>
+        </div>
+        <input type="submit" value="Remove"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
